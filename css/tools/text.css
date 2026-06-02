@@ -1,0 +1,217 @@
+/* Styling for Character Counter & Text Analyzer Tool */
+
+.text-analyzer-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.text-analyzer-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+@media (max-width: 900px) {
+    .text-analyzer-main {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Editor Card */
+.editor-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.analyzer-textarea-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.analyzer-textarea {
+    width: 100%;
+    min-height: 280px;
+    padding: 20px;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-primary);
+    resize: vertical;
+    transition: all 0.2s ease;
+}
+
+.analyzer-textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.editor-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Stats Ribbon */
+.stats-ribbon {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 600px) {
+    .stats-ribbon {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.stat-box {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-num {
+    font-family: 'Plus Jakarta Sans', monospace;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
+/* Sidebar Widgets */
+.analyzer-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.widget-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+.widget-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+/* Social Limits Indicators */
+.limit-item {
+    margin-bottom: 16px;
+}
+
+.limit-item:last-child {
+    margin-bottom: 0;
+}
+
+.limit-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.limit-progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--bg-primary);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.limit-progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--success);
+    border-radius: 4px;
+    transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.limit-progress-fill.warning {
+    background-color: var(--warning);
+}
+
+.limit-progress-fill.danger {
+    background-color: var(--danger);
+}
+
+/* Reading Speaking Times */
+.read-speak-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.time-item {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+}
+
+.time-val {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.time-lbl {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Word Density */
+.density-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.density-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.density-word {
+    font-family: monospace;
+    font-weight: 600;
+    background-color: var(--bg-primary);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--text-primary);
+}
+
+.density-count {
+    font-weight: 600;
+    color: var(--text-primary);
+}
