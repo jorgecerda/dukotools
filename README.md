@@ -1,8 +1,9 @@
 # tiinytools ⚡️
 
+https://tiinytools.netlify.app/
+
 A premium, elegant, and secure suite of client-side web tools for developers and everyday users. Calculate percentages, analyze text, split or merge PDFs, and more—all directly in your browser without uploading files to any server.
 
-![tiinytools](assets/logo.png?v=2)
 ## ✨ Features
 
 - **100% Client-Side Processing**: Your data never leaves your browser, ensuring absolute privacy and security.
