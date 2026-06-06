@@ -16,6 +16,11 @@ const TOOLS_REGISTRY = {
         title: 'Character Counter & Text Analyzer',
         description: 'Analyze text length in real-time. Count characters, words, sentences, paragraphs. Convert case and estimate reading times.',
         modulePath: './tools/text.js'
+    },
+    'pdftools': {
+        title: 'PDF Compress & Convert',
+        description: 'Compress PDFs locally in your browser, or convert PDFs to Word, PowerPoint, Excel and PNG via CloudConvert.',
+        modulePath: './tools/pdftools.js'
     }
 };
 

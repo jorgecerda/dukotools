@@ -1,0 +1,397 @@
+/* Styling for PDF Compress & Convert Tool */
+
+/* ── Container ─────────────────────────────── */
+.pdftools-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ── Tabs (reuse PDF tab pattern) ────────────── */
+.pdftools-tabs {
+    display: flex;
+    gap: 12px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1px;
+    flex-wrap: wrap;
+}
+
+.pdftools-tab-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    margin-bottom: -1px;
+}
+
+.pdftools-tab-btn:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-card-hover);
+}
+
+.pdftools-tab-btn.active {
+    color: var(--primary);
+    border: 1px solid var(--border-color);
+    border-bottom-color: var(--bg-secondary);
+    background-color: var(--bg-secondary);
+}
+
+.pdftools-tab-panel {
+    display: none;
+    animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pdftools-tab-panel.active {
+    display: block;
+}
+
+/* ── API Key Banner ──────────────────────────── */
+.api-key-banner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    background-color: rgba(245, 158, 11, 0.07);
+    border-radius: 12px;
+    flex-wrap: wrap;
+}
+
+.api-key-banner.saved {
+    border-color: rgba(16, 185, 129, 0.3);
+    background-color: rgba(16, 185, 129, 0.07);
+}
+
+.api-key-icon {
+    flex-shrink: 0;
+    color: var(--warning);
+}
+
+.api-key-banner.saved .api-key-icon {
+    color: var(--success);
+}
+
+.api-key-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.api-key-text p {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.api-key-text span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.api-key-input-row {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    min-width: 240px;
+}
+
+.api-key-input-row input {
+    flex: 1;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 0.875rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.api-key-input-row input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* ── Files Queue List ────────────────────────── */
+.pdftools-file-queue {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pdftools-file-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 14px 16px;
+    transition: border-color 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Progress bar stripe overlay at bottom of item */
+.pdftools-file-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: var(--progress, 0%);
+    background: linear-gradient(90deg, var(--primary), var(--accent-purple));
+    border-radius: 0 3px 3px 0;
+    transition: width 0.4s ease;
+}
+
+.pdftools-file-item.processing {
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.pdftools-file-item.done {
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+.pdftools-file-item.error {
+    border-color: rgba(239, 68, 68, 0.4);
+}
+
+.pdftools-file-icon {
+    flex-shrink: 0;
+    color: var(--danger);
+    opacity: 0.8;
+}
+
+.pdftools-file-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pdftools-file-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pdftools-file-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.pdftools-file-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.pdftools-file-status.pending   { color: var(--text-muted); }
+.pdftools-file-status.processing { color: var(--primary); }
+.pdftools-file-status.done      { color: var(--success); }
+.pdftools-file-status.error     { color: var(--danger); }
+
+.pdftools-file-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* ── Compression Result Badge ────────────────── */
+.compress-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.compress-badge.good {
+    background-color: rgba(16, 185, 129, 0.12);
+    color: var(--success);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.compress-badge.minimal {
+    background-color: rgba(245, 158, 11, 0.12);
+    color: var(--warning);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+/* ── Format Selector Pills ───────────────────── */
+.format-selector {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 4px;
+}
+
+.format-selector-label {
+    width: 100%;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.format-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.format-pill:hover {
+    border-color: var(--border-color-hover);
+    color: var(--text-primary);
+}
+
+.format-pill.active {
+    border-color: var(--primary);
+    color: var(--primary);
+    background-color: rgba(99, 102, 241, 0.08);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.format-pill-icon {
+    font-size: 1.1rem;
+}
+
+/* ── Controls Bar ────────────────────────────── */
+.pdftools-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* ── Animated status spinner inline ─────────── */
+.inline-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(99, 102, 241, 0.2);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    flex-shrink: 0;
+}
+
+/* ── Download btn inside result row ─────────── */
+.btn-download-result {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-download-result:hover {
+    background-color: var(--success);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+
+.btn-remove-file {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    background: none;
+    color: var(--text-muted);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-remove-file:hover {
+    color: var(--danger);
+    border-color: rgba(239, 68, 68, 0.3);
+    background-color: var(--danger-light);
+}
+
+/* ── Loading Overlay (reused from pdf.css pattern) ── */
+.pdftools-loading-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(9, 13, 22, 0.75);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    z-index: 200;
+    animation: fadeIn 0.2s ease;
+}
+
+.pdftools-loading-overlay p {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* ── Empty state ─────────────────────────────── */
+.pdftools-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 32px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .api-key-banner { flex-direction: column; align-items: flex-start; }
+    .pdftools-controls { flex-direction: column; }
+    .format-selector { gap: 8px; }
+    .format-pill { padding: 8px 12px; font-size: 0.85rem; }
+}
